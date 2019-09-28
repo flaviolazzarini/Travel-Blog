@@ -29,6 +29,17 @@ module.exports = {
       }
     },
     {
+    use: '@gridsome/source-filesystem',
+      options: {
+        path: 'entries/**/*.md',
+        typeName: 'BlogEntriy',
+        remark: {
+          externalLinksTarget: "_blank",
+          externalLinksRel: ["nofollow", "noopener", "noreferrer"]
+        }
+      }
+    },
+    {
       use: `gridsome-plugin-netlify-cms`,
       options: {
         publicPath: `/admin`
