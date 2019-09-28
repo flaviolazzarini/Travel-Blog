@@ -16,17 +16,15 @@ module.exports = {
       ]
     }
   },
-
   plugins: [
     {
       use: '@gridsome/source-filesystem',
       options: {
         path: 'posts/**/*.md',
-        typeName: 'Post',
+        typeName: 'BlogPost',
         remark: {
-          plugins: [
-            // ...local plugins
-          ]
+          externalLinksTarget: "_blank",
+          externalLinksRel: ["nofollow", "noopener", "noreferrer"]
         }
       }
     },
