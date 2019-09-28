@@ -1,6 +1,7 @@
 backend:
-  name: github
-  repo: flaviolazzarini/Travel-Blog
+  name: git-gateway
+  # name: github
+  # repo: flaviolazzarini/Travel-Blog
 
 media_folder: "static/uploads"
 public_folder: "/uploads"

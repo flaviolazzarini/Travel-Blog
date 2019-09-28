@@ -1,5 +1,6 @@
 <template>
   <Layout>
+    <div data-netlify-identity-menu></div>
     <BlogOverview :blogPosts="$page.blogPosts.edges" />
   </Layout>
 </template>
@@ -30,6 +31,11 @@ export default {
   },
   components: {
     BlogOverview
+  },
+  created() {
+    let ckeditor = document.createElement("script");
+    ckeditor.setAttribute("src", "https://identity.netlify.com/v1/netlify-identity-widget.js");
+    document.head.appendChild(ckeditor);
   }
 };
 </script>
