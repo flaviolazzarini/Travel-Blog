@@ -1,6 +1,6 @@
 ---
 title: Florenz
-excerpt: Summer 2017
+excerpt: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
 date: 2019-09-28T09:14:29.429Z
 image: /uploads/dsc02259.jpg
 ---

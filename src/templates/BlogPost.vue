@@ -2,10 +2,9 @@
   <Layout>
     <h1 v-html="$page.blogPost.title" />
     <g-image :src="$page.blogPost.image" class="image" />
-    <h3 v-html="$page.blogPost.excerpt" />
-    <h5 v-html="$page.blogPost.date" />
-    <!-- <blogContent :content="$page.blogPost.content" /> -->
-    <blogEntries :travelBlog="$page.blogPost.title"/>
+    <h3 v-html="$page.blogPost.date" />
+    <h5 v-html="$page.blogPost.excerpt" />
+    <blogContent :content="$page.blogPost.content" />
     <h1>Kommentare</h1>
     <Comment :blogId="$page.blogPost.id" />
   </Layout>
@@ -17,7 +16,7 @@ query BlogPost($path: String!) {
     id
     title
     excerpt
-    date
+    date (format: "DD. MMMM YYYY")
     image
     content
   }
@@ -26,7 +25,6 @@ query BlogPost($path: String!) {
 
 <script>
 import BlogContent from "@/components/BlogContent";
-import BlogEntries from "@/components/BlogEntries";
 import Comment from "@/components/Comment";
 
 export default {
@@ -37,7 +35,6 @@ export default {
   },
   components: {
     BlogContent,
-    BlogEntries,
     Comment
   }
 };

@@ -1,6 +1,6 @@
 ---
 title: Balkan Tour
-excerpt: Summer 2019
+excerpt: No sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
 date: 2019-09-28T07:15:53.955Z
 image: /uploads/mostar.jpg
 ---
