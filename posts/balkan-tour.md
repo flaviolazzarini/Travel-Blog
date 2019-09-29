@@ -1,6 +1,7 @@
 ---
 title: Balkan Tour
 excerpt: Summer 2019
+destination: Mostar
 date: 2019-09-28T07:15:53.955Z
 image: /uploads/mostar.jpg
 ---
