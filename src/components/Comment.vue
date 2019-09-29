@@ -1,7 +1,7 @@
 <template>
-  <div class="comment">
+  <div class="comment" id="comments">
     <b-list-group v-if="posts && posts.length">
-      <b-list-group-item class="comment-item" v-for="post in posts" :key="post.id">{{post.title}}</b-list-group-item>
+      <b-list-group-item class="comment-item" v-for="post in posts" :key="post.id">{{post}}</b-list-group-item>
     </b-list-group>
     <b-form-textarea id="textarea" rows="7" v-model="text"></b-form-textarea>
     <b-button variant="outline-primary" v-on:click="submit(text)">senden</b-button>
@@ -37,29 +37,47 @@ export default {
             }
           )
           .then(response => {
-            console.log("comment added");
+            this.text = "";
+            this.$bvToast.toast("Your comment has been submitted!", {
+              title: "Success",
+              autoHideDelay: 5000,
+              variant: "success",
+              toaster: "b-toaster-bottom-center",
+              appendToast: true
+            });
           })
           .catch(e => {
-            console.log("error");
+            this.$bvToast.toast("Your comment could not been saved!", {
+              title: "Fail",
+              autoHideDelay: 5000,
+              variant: "danger",
+              toaster: "b-toaster-bottom-center",
+              appendToast: true
+            });
           });
       }
     }
   },
 
-  // Fetches posts when the component is created.
   created() {
+    const BASIC_URL =
+      `https://travel-blog-31f6e.firebaseio.com/comments/` + this.blogId;
     axios
-      .get(
-        `https://us-central1-travel-blog-31f6e.cloudfunctions.net/comments/` +
-          this.blogId
-      )
+      .get(BASIC_URL + `.json`)
       .then(response => {
-        console.log(response);
-        // JSON responses are automatically parsed.
-        this.posts = response.data;
+        for (var key in response.data) {
+          axios
+            .get(BASIC_URL + `/` + key + `.json`)
+            .then(res => {
+              this.posts.push(res.data.comment);
+            })
+            .catch(e => {
+              console.log(e);
+            });
+        }
       })
       .catch(e => {
-        this.errors.push(e);
+        console.log(e);
       });
   }
 };
