@@ -35,11 +35,6 @@ export default {
   components: {
     BlogOverview
   },
-  data: function() {
-    return {
-      loggedIn: false
-    };
-  },
   methods: {
     login: function() {
       netlifyIdentity.open();
@@ -47,19 +42,23 @@ export default {
   },
   created() {},
   mounted() {
-    this.loggedIn = netlifyIdentity.currentUser() !== null;
     //this.user =
     netlifyIdentity.init({
       container: "#netlify-identity" // defaults to document.body,
     });
-    if(netlifyIdentity.currentUser() !== null){
-      this.$refs.button.innerHTML = "Log out"
+    if (netlifyIdentity.currentUser() !== null) {
+      this.$refs.button.innerHTML = "Log out";
+    } else {
+      this.$refs.button.innerHTML = "Sign up / Log in";
     }
-    else {
-      this.$refs.button.innerHTML = "Sign up / Log in"
-    }
-    netlifyIdentity.on("login", user => this.$refs.button.innerHTML = "Log out");
-    netlifyIdentity.on("logout", () => this.$refs.button.innerHTML = "Sign up / Log in");
+    netlifyIdentity.on(
+      "login",
+      user => (this.$refs.button.innerHTML = "Log out")
+    );
+    netlifyIdentity.on(
+      "logout",
+      () => (this.$refs.button.innerHTML = "Sign up / Log in")
+    );
   }
 };
 </script>

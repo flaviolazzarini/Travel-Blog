@@ -11,7 +11,7 @@
     <h5 v-html="$page.blogPost.excerpt" />
     <blogContent :content="$page.blogPost.content" />
     <h1>Kommentare</h1>
-    <Comment :blogId="$page.blogPost.id" :loggedIn="this.loggedIn" />
+    <Comment :blogId="$page.blogPost.id" />
   </Layout>
 </template>
 
@@ -32,7 +32,6 @@ query BlogPost($path: String!) {
 <script>
 import BlogContent from "@/components/BlogContent";
 import Comment from "@/components/Comment";
-const netlifyIdentity = require("netlify-identity-widget");
 
 export default {
   metaInfo() {
@@ -40,19 +39,9 @@ export default {
       title: this.$page.blogPost.title
     };
   },
-  data() {
-    return {
-      loggedIn: false
-    };
-  },
   components: {
     BlogContent,
     Comment
-  },
-  mounted() {
-    this.loggedIn = netlifyIdentity.currentUser() !== null;
-    // Get the current user:
-    console.log(this.loggedIn);
   }
 };
 </script>
