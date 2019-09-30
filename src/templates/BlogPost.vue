@@ -11,7 +11,7 @@
     <h5 v-html="$page.blogPost.excerpt" />
     <blogContent :content="$page.blogPost.content" />
     <h1>Kommentare</h1>
-    <Comment :blogId="$page.blogPost.id" />
+    <Comment :blogId="$page.blogPost.id" :loggedIn="this.loggedIn" />
   </Layout>
 </template>
 
@@ -39,9 +39,20 @@ export default {
       title: this.$page.blogPost.title
     };
   },
+  data() {
+    return {
+      loggedIn: false
+    };
+  },
   components: {
     BlogContent,
     Comment
+  },
+
+  created() {
+    this.loggedIn = netlifyIdentity.currentUser() !== null;
+    // Get the current user:
+    console.log(this.loggedIn);
   }
 };
 </script>

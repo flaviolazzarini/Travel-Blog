@@ -3,8 +3,10 @@
     <b-list-group v-if="posts && posts.length">
       <b-list-group-item class="comment-item" v-for="post in posts" :key="post.id">{{post}}</b-list-group-item>
     </b-list-group>
-    <b-form-textarea id="textarea" rows="7" v-model="text"></b-form-textarea>
-    <b-button variant="outline-primary" v-on:click="submit(text)">senden</b-button>
+    <div v-if="this.loggedIn">
+      <b-form-textarea id="textarea" rows="7" v-model="text"></b-form-textarea>
+      <b-button variant="outline-primary" v-on:click="submit(text)">senden</b-button>
+    </div>
   </div>
 </template>
 
@@ -14,7 +16,8 @@ import axios from "axios";
 export default {
   // Input
   props: {
-    blogId: String
+    blogId: String,
+    loggedIn: Boolean
   },
 
   // Properties
@@ -92,6 +95,10 @@ export default {
   margin-top: 8px;
   border-radius: 8px;
   box-shadow: 3px 3px rgba(0, 0, 0, 0.1);
+}
+
+.comment-item:nth-last-child(1) {
+  margin-bottom: 16px;
 }
 
 button {
