@@ -32,6 +32,7 @@ query BlogPost($path: String!) {
 <script>
 import BlogContent from "@/components/BlogContent";
 import Comment from "@/components/Comment";
+const netlifyIdentity = require("netlify-identity-widget");
 
 export default {
   metaInfo() {
@@ -48,8 +49,7 @@ export default {
     BlogContent,
     Comment
   },
-
-  created() {
+  mounted() {
     this.loggedIn = netlifyIdentity.currentUser() !== null;
     // Get the current user:
     console.log(this.loggedIn);
