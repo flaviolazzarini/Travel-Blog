@@ -27,15 +27,13 @@ import BlogOverview from "@/components/BlogOverview";
 
 export default {
   metaInfo: {
-    title: "Hello, world!"
+    title: "Hello, world!",
+    script: [
+      { src: 'https://identity.netlify.com/v1/netlify-identity-widget.js', async: false, defer: false }
+    ],
   },
   components: {
     BlogOverview
-  },
-  created() {
-    let ckeditor = document.createElement("script");
-    ckeditor.setAttribute("src", "https://identity.netlify.com/v1/netlify-identity-widget.js");
-    document.head.appendChild(ckeditor);
   }
 };
 </script>
