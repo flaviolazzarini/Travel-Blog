@@ -5,7 +5,7 @@
     </b-list-group>
     <div v-if="this.isLoggedIn">
       <b-form-textarea id="textarea" rows="7" v-model="text"></b-form-textarea>
-      <b-button variant="outline-primary" v-on:click="submit(text)">senden</b-button>
+      <b-button class="btn btn-dark" v-on:click="submit(text)">submit</b-button>
     </div>
   </div>
 </template>
