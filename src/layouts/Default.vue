@@ -4,10 +4,10 @@
       <strong>
         <g-link class="nav__link" to="/">Home</g-link>
       </strong>
-      <nav class="nav">
-        <g-link class="nav__link" to="/about/">About</g-link>
-      </nav>
+      <g-link class="nav__link" to="/about/">About</g-link>
+      <Login />
     </header>
+    <hr />
     <slot />
   </div>
 </template>
@@ -19,6 +19,16 @@ query {
   }
 }
 </static-query>
+
+<script>
+import Login from "@/components/Login";
+
+export default {
+  components: {
+    Login
+  }
+};
+</script>
 
 <style>
 body {
@@ -38,9 +48,10 @@ body {
 
 .header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  height: 80px;
+  justify-content: space-evenly;
+  margin-top: 16px;
+  height: 60px;
 }
 
 .nav__link {
