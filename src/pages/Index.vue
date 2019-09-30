@@ -28,7 +28,7 @@ import BlogOverview from "@/components/BlogOverview";
 
 export default {
   metaInfo: {
-    title: "Hello, world!"
+    title: "Blogtravel"
   },
   components: {
     BlogOverview
