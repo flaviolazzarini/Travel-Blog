@@ -1,5 +1,7 @@
 <template>
   <div class="layout">
+    <h1 id="title">Travel Blog</h1>
+    <hr />
     <header class="header">
       <strong>
         <g-link class="nav__link" to="/">Home</g-link>
@@ -39,6 +41,18 @@ body {
   line-height: 1.5;
 }
 
+hr {
+  margin-top: 4px !important;
+  margin-bottom: 4px !important;
+}
+
+#title {
+  text-align: center;
+  margin-top: 16px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 54px;
+}
+
 .layout {
   max-width: 760px;
   margin: 0 auto;
@@ -50,7 +64,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  margin-top: 16px;
   height: 60px;
 }
 

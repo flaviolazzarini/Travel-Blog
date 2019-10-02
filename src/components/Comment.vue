@@ -3,6 +3,7 @@
     <b-list-group v-if="posts && posts.length">
       <b-list-group-item class="comment-item" v-for="post in posts" :key="post.id">{{post}}</b-list-group-item>
     </b-list-group>
+    <p v-else>No comments added yet</p>
     <div v-if="this.isLoggedIn">
       <b-form-textarea id="textarea" rows="7" v-model="text"></b-form-textarea>
       <b-button class="btn btn-dark" v-on:click="submit(text)">submit</b-button>
@@ -105,10 +106,15 @@ export default {
 }
 
 .comment-item:nth-last-child(1) {
-  margin-bottom: 16px;
+  margin-bottom: 32px;
 }
 
 button {
-  margin-bottom: 16px;
+  margin-bottom: 32px;
+}
+
+p {
+  color: grey;
+  margin-bottom: 32px;
 }
 </style>
