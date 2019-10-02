@@ -28,7 +28,7 @@ export default {
 }
 
 .cards {
-  margin-bottom: 16px;
+  margin: 24px 0;
 }
 
 .cards:hover {
