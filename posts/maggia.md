@@ -1,6 +1,12 @@
 ---
 title: Maggia
-excerpt: bla bla bla
+excerpt: >-
+  Die Maggia entspringt oberhalb des Lago del Corbo an der Cristallina und
+  mündet südwestlich von Locarno mit einem Delta in den Lago Maggiore. Sie
+  entwässert einen grossen Teil der Tessiner Alpen. Ihre Länge beträgt 59 km. 
+  Maggia Kraftwerke verwenden die Wasserkraft der Maggia an 5 Stauseen zur
+  Erzeugung elektrischer Energie. Im Jahresmittel werden mit dem Wasser der
+  Maggia 144 MW erzeugt. 
 destination: Tessin
 date: 2019-10-05T11:24:52.387Z
 image: /uploads/maggia.jpg
